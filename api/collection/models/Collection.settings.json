@@ -1,0 +1,64 @@
+{
+  "connection": "default",
+  "collectionName": "collections",
+  "info": {
+    "name": "collection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 255
+    },
+    "favorited": {
+      "unique": true,
+      "collection": "user",
+      "via": "favorites",
+      "dominant": true,
+      "plugin": "users-permissions"
+    },
+    "creator": {
+      "unique": true,
+      "model": "user",
+      "via": "collections",
+      "plugin": "users-permissions"
+    },
+    "privateCollection": {
+      "required": true,
+      "type": "boolean"
+    },
+    "private" :{
+      "required": false,
+      "type": "boolean"
+    },
+    "tint": {
+      "required": true,
+      "enum": [
+        "black",
+        "orange",
+        "green",
+        "red",
+        "blue",
+        "purple"
+      ],
+      "default": "black",
+      "type": "enumeration"
+    },
+    "cards": {
+      "collection": "card",
+      "via": "collection"
+    }
+  }
+}

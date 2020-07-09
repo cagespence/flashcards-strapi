@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "cards",
+  "info": {
+    "name": "card",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "front": {
+      "type": "text"
+    },
+    "back": {
+      "type": "text"
+    },
+    "collection": {
+      "model": "collection",
+      "via": "cards"
+    }
+  }
+}
